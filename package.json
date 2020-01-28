@@ -1,0 +1,57 @@
+{
+  "name": "is-valid-hostname",
+  "version": "0.0.1",
+  "description": "Validate hostname based on RFC-1123",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js",
+    "build:example": "browserify example/main.js -o example/dist/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miguelmota/is-valid-hostname"
+  },
+  "keywords": [
+    "valid",
+    "validate",
+    "validator",
+    "check",
+    "checker",
+    "domain",
+    "subdomain",
+    "wildcard",
+    "host",
+    "hostname",
+    "rfc1123"
+  ],
+  "author": {
+    "name": "Miguel Mota",
+    "email": "hello@miguelmota.com",
+    "url": "https://miguelmota.com/"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/miguelmota/is-valid-hostname/blob/master/LICENSE"
+  },
+  "bugs": {
+    "url": "https://github.com/miguelmota/is-valid-hostname/issues"
+  },
+  "homepage": "https://github.com/miguelmota/is-valid-hostname",
+  "devDependencies": {
+    "browserify": "^16.2.3",
+    "tape": "^4.9.2"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
+  }
+}
