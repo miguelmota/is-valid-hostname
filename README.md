@@ -30,7 +30,7 @@ isValidHostname('-example.com') // false
 
 View more [examples](./test/test.js).
 
-Also checkout [`is-valid-domain`](https://github.com/miguelmota/is-valid-domain).
+Also check out [`is-valid-domain`](https://github.com/miguelmota/is-valid-domain) to validate domain names.
 
 ## License
 
