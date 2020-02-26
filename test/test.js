@@ -97,7 +97,7 @@ test('is valid hostname', function(t) {
   t.equal(isValidHostname({}), false)
   t.equal(isValidHostname(function(){}), false)
 
-  // junk
+  // invalid values
   t.equal(isValidHostname('foo.example.com*'), false)
   t.equal(isValidHostname(`google.com"\'\"\""\\"\\'test test`), false)
   t.equal(isValidHostname(`google.com.au'"\'\"\""\\"\\'test`), false)
