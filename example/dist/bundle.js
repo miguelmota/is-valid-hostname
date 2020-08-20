@@ -26,7 +26,7 @@ module.exports = function isValidHostname(value, opts) {
   }
 
   if (value.endsWith('.')) {
-    value = value.slice(0, value.length-1)
+    value = value.slice(0, value.length - 1)
   }
 
   if (value.length > 253) {
@@ -35,7 +35,7 @@ module.exports = function isValidHostname(value, opts) {
 
   const labels = value.split('.')
 
-  const isValid = labels.every(function(label) {
+  const isInitiallyValid = labels.every(function (label) {
     const validLabelChars = /^([a-zA-Z0-9-]+)$/g
 
     const validLabel = (
@@ -48,6 +48,14 @@ module.exports = function isValidHostname(value, opts) {
     return validLabel
   })
 
-  return isValid
+  // check to ensure all-numeric values don't pass validation
+  // only values with more than one numeric label may have the invalid all-numeric case
+  let isAllNumeric = false
+  if (labels.length > 1) {
+    isAllNumeric = labels.every((label) => label.match(/^[0-9]*$/))
+  }
+
+  return isInitiallyValid && !isAllNumeric
 }
+
 },{}]},{},[1]);
