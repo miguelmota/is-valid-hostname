@@ -2,7 +2,7 @@ module.exports = function isValidHostname(value, opts) {
   if (typeof value !== 'string') return false
   if (!(opts instanceof Object)) opts = {}
 
-  const validHostnameChars = /^([a-zA-Z0-9-.]+){1,253}$/g
+  const validHostnameChars = /^[a-zA-Z0-9-.]{1,253}$/g
   if (!validHostnameChars.test(value)) {
     return false
   }
