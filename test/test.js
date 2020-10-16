@@ -2,14 +2,16 @@ var test = require('tape')
 var isValidHostname = require('../')
 
 test('is valid hostname', function (t) {
-  t.plan(85)
+  t.plan(87)
 
   // tld and subdomains
   t.equal(isValidHostname('example.com'), true)
+  t.equal(isValidHostname('example.com.'), true)
   t.equal(isValidHostname('foo.example.com'), true)
   t.equal(isValidHostname('bar.foo.example.com'), true)
   t.equal(isValidHostname('exa-mple.co.uk'), true)
   t.equal(isValidHostname('a.com'), true)
+  t.equal(isValidHostname('.com.'), false)
   t.equal(isValidHostname('a.b'), true)
   t.equal(isValidHostname('foo.bar.baz'), true)
   t.equal(isValidHostname('foo-bar.ba-z.qux'), true)
