@@ -1,7 +1,7 @@
 {
   "name": "is-valid-hostname",
-  "version": "0.1.1",
-  "description": "Validate hostname based on RFC-3696",
+  "version": "1.0.0",
+  "description": "Validate hostname based on RFC-1123",
   "main": "index.js",
   "scripts": {
     "test": "tape test/*.js",
@@ -23,7 +23,11 @@
     "host",
     "hostname",
     "rfc1123",
-    "rfc3696"
+    "rfc3696",
+    "rfc952",
+    "rfc1034",
+    "rfc1738",
+    "rfc4697"
   ],
   "author": {
     "name": "Miguel Mota",

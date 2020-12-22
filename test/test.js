@@ -2,7 +2,7 @@ var test = require('tape')
 var isValidHostname = require('../')
 
 test('is valid hostname', function (t) {
-  t.plan(87)
+  t.plan(90)
 
   // tld and subdomains
   t.equal(isValidHostname('example.com'), true)
@@ -68,6 +68,13 @@ test('is valid hostname', function (t) {
   t.equal(isValidHostname('xn--6qq79v.xn--fiqz9s'), true)
   t.equal(isValidHostname('xn--ber-goa.com'), true)
 
+  // IPs
+  t.equal(isValidHostname("127.0.0.1"), true)
+  t.equal(isValidHostname("100.1.2.3"), true)
+  t.equal(isValidHostname("8.8.8.8"), true)
+  t.equal(isValidHostname("127.0.0.1:3000"), false)
+  t.equal(isValidHostname("1.1.1.3com"), true)
+
   // valid labels
   t.equal(isValidHostname('localhost'), true)
   t.equal(isValidHostname('example'), true)
@@ -82,8 +89,6 @@ test('is valid hostname', function (t) {
   t.equal(isValidHostname(`${'a'.repeat(63)}.${'b'.repeat(63)}.${'c'.repeat(63)}.${'c'.repeat(62)}`), false)
 
   // invalid labels
-  t.equal(isValidHostname("127.0.0.1"), false)
-  t.equal(isValidHostname("127.0.0.1:3000"), false)
   t.equal(isValidHostname("example.com:3000"), false)
   t.equal(isValidHostname("localhost:3000"), false)
   t.equal(isValidHostname('example..comw'), false)

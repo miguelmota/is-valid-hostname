@@ -16,11 +16,10 @@ function update(event) {
 }
 
 },{"../":2}],2:[function(require,module,exports){
-module.exports = function isValidHostname(value, opts) {
+module.exports = function isValidHostname(value) {
   if (typeof value !== 'string') return false
-  if (!(opts instanceof Object)) opts = {}
 
-  const validHostnameChars = /^([a-zA-Z0-9-.]+){1,253}$/g
+  const validHostnameChars = /^[a-zA-Z0-9-.]{1,253}\.?$/g
   if (!validHostnameChars.test(value)) {
     return false
   }
@@ -35,7 +34,7 @@ module.exports = function isValidHostname(value, opts) {
 
   const labels = value.split('.')
 
-  const isInitiallyValid = labels.every(function (label) {
+  const isValid = labels.every(function (label) {
     const validLabelChars = /^([a-zA-Z0-9-]+)$/g
 
     const validLabel = (
@@ -48,14 +47,7 @@ module.exports = function isValidHostname(value, opts) {
     return validLabel
   })
 
-  // check to ensure all-numeric values don't pass validation
-  // only values with more than one numeric label may have the invalid all-numeric case
-  let isAllNumeric = false
-  if (labels.length > 1) {
-    isAllNumeric = labels.every((label) => label.match(/^[0-9]*$/))
-  }
-
-  return isInitiallyValid && !isAllNumeric
+  return isValid
 }
 
 },{}]},{},[1]);
