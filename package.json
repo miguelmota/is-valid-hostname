@@ -1,6 +1,6 @@
 {
   "name": "is-valid-hostname",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validate hostname based on RFC-1123",
   "main": "index.js",
   "scripts": {
