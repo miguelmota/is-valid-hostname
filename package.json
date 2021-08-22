@@ -1,8 +1,9 @@
 {
   "name": "is-valid-hostname",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Validate hostname based on RFC-1123",
   "main": "index.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "test": "tape test/*.js",
     "build:example": "browserify example/main.js -o example/dist/bundle.js"
